@@ -4,5 +4,8 @@
     <string name="app_name">SJSU Writing Center</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_resources">Resources</string>
+    <string name="title_activity_location">Location</string>
+    <string name="title_activity_faq">F.A.Q\'s</string>
 
 </resources>
