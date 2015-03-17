@@ -1,11 +1,196 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".WelcomeActivity">
+    android:layout_height="match_parent" tools:context=".WelcomeActivity">
 
-    <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+    <!-- Use an invisible view to setup a middle point within the layout-->
+    <View android:id="@+id/fakeView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_centerInParent="true"
+        android:background="#00FFFFFF"/>
+
+
+
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/fakeView"
+        android:weightSum="2"
+        android:stretchColumns="1"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="0dp"
+        android:background="#55000000"
+        android:id="@+id/tableLayout">
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="2"
+            android:layout_margin="0dp"
+            android:orientation="horizontal"
+            android:baselineAligned="false">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:id="@+id/appointmentLayout"
+                android:layout_marginRight="1dp"
+                android:layout_marginBottom="1dp"
+                android:background="#22000000">
+                <ImageButton
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/appointmentsButton"
+                    android:scaleType="fitCenter"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/appointments"
+                    android:padding="20dp"
+                    android:layout_margin="0dp"
+                    android:layout_above="@+id/appointmentTextView"
+                    android:background="#00000000"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Appointments"
+                    android:id="@+id/appointmentTextView"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="#FFFFFFFF"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:id="@+id/resourcesLayout"
+                android:layout_marginLeft="1dp"
+                android:layout_marginBottom="1dp"
+                android:background="#22000000">
+                <ImageButton
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/resourcesButton"
+                    android:scaleType="fitCenter"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/resources"
+                    android:padding="20dp"
+                    android:layout_weight="1"
+                    android:layout_margin="0dp"
+                    android:background="#00000000"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Resources"
+                    android:id="@+id/resourcesTextView"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="#FFFFFFFF"/>
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:weightSum="2"
+            android:layout_height="match_parent"
+            android:baselineAligned="false">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:id="@+id/locationLayout"
+                android:layout_marginRight="1dp"
+                android:layout_marginTop="1dp"
+                android:background="#22000000">
+                <ImageButton
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/locationButton"
+                    android:scaleType="fitCenter"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/location"
+                    android:padding="20dp"
+                    android:layout_weight="1"
+                    android:background="#00000000"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Location"
+                    android:id="@+id/locationTextView"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="#FFFFFFFF"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:id="@+id/faqLayout"
+                android:layout_marginLeft="1dp"
+                android:layout_marginTop="1dp"
+                android:background="#22000000">
+                <ImageButton
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/faqButton"
+                    android:scaleType="fitCenter"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/faq"
+                    android:padding="20dp"
+                    android:layout_weight="1"
+                    android:background="#00000000"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Questions"
+                    android:id="@+id/faqTextView"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="#FFFFFFFF"/>
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/socialButtons"
+            android:orientation="horizontal">
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/twitterButton" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/facebookButton" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/youtubeButton" />
+        </LinearLayout>
+    </TableLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/wcLogo"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"
+        android:src="@drawable/pencil"
+        android:layout_above="@+id/fakeView"
+        android:layout_centerHorizontal="true" />
+
 
 </RelativeLayout>

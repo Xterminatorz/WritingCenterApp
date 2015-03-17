@@ -1,9 +1,14 @@
 package edu.sjsu.writingcenter;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 
 
 public class WelcomeActivity extends ActionBarActivity {
@@ -12,6 +17,79 @@ public class WelcomeActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
+
+        // Setup buttons with their intents for click events
+        ImageButton appointmentButton = (ImageButton) findViewById(R.id.appointmentsButton);
+        appointmentButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Launch the browser with the URL to create an appointment
+                Intent appointmentIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.appointment_url)));
+                startActivity(appointmentIntent);
+            }
+        });
+        appointmentButton.setImageResource(R.drawable.appointments);
+
+        ImageButton resourcesButton = (ImageButton) findViewById(R.id.resourcesButton);
+        resourcesButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Launch the resources activity
+                Intent resourcesIntent = new Intent(getApplicationContext(), ResourcesActivity.class);
+                startActivity(resourcesIntent);
+
+            }
+        });
+        resourcesButton.setImageResource(R.drawable.resources);
+
+        ImageButton locationButton = (ImageButton) findViewById(R.id.locationButton);
+        locationButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Launch the location activity
+                Intent locationIntent = new Intent(getApplicationContext(), LocationActivity.class);
+                startActivity(locationIntent);
+            }
+        });
+        locationButton.setImageResource(R.drawable.location);
+
+        ImageButton faqButton = (ImageButton) findViewById(R.id.faqButton);
+        faqButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Launch the FAQ activity
+                Intent faqIntent = new Intent(getApplicationContext(), FAQActivity.class);
+                startActivity(faqIntent);
+            }
+        });
+        faqButton.setImageResource(R.drawable.faq);
+
+        ImageButton facebookButton = (ImageButton) findViewById(R.id.facebookButton);
+        facebookButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Facebook
+            }
+        });
+
+        ImageButton twitterButton = (ImageButton) findViewById(R.id.twitterButton);
+        twitterButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //twitter
+            }
+        });
+
+        ImageButton youtubeButton = (ImageButton) findViewById(R.id.youtubeButton);
+        youtubeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //youtube
+            }
+        });
+
+        ImageView wcLogo = (ImageView) findViewById(R.id.wcLogo);
+        wcLogo.setImageResource(R.drawable.pencil);
     }
 
 
