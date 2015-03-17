@@ -1,14 +1,19 @@
 package edu.sjsu.writingcenter;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 
 public class WelcomeActivity extends ActionBarActivity {
@@ -17,6 +22,19 @@ public class WelcomeActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
+
+        //Create a view for use in the ActionBar
+        TextView actionBarTitle = new TextView(this);
+        actionBarTitle.setText("SJSU Writing Center");
+        actionBarTitle.setTextColor(Color.WHITE);
+        //Create layout parameters to center the text in the ActionBar
+        ActionBar.LayoutParams layout = new ActionBar.LayoutParams(ActionBar.LayoutParams.WRAP_CONTENT, ActionBar.LayoutParams.WRAP_CONTENT);
+        layout.gravity = Gravity.CENTER_HORIZONTAL;
+        //Set up the ActionBar to display a custom view
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setDisplayShowCustomEnabled(true);
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#77000000")));
+        getSupportActionBar().setCustomView(actionBarTitle, layout);
 
         // Setup buttons with their intents for click events
         ImageButton appointmentButton = (ImageButton) findViewById(R.id.appointmentsButton);
@@ -88,8 +106,8 @@ public class WelcomeActivity extends ActionBarActivity {
             }
         });
 
-        ImageView wcLogo = (ImageView) findViewById(R.id.wcLogo);
-        wcLogo.setImageResource(R.drawable.pencil);
+        //ImageView wcLogo = (ImageView) findViewById(R.id.wcLogo);
+        //wcLogo.setImageResource(R.drawable.pencil);
     }
 
 
