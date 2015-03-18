@@ -1,6 +1,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" tools:context=".WelcomeActivity">
+    android:layout_height="match_parent" tools:context=".WelcomeActivity"
+    android:background="@drawable/background"
+    android:paddingTop="?attr/actionBarSize">
 
     <!-- Use an invisible view to setup a middle point within the layout-->
     <View android:id="@+id/fakeView"
@@ -159,27 +161,41 @@
             </RelativeLayout>
         </LinearLayout>
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_weight="1"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/socialButtons"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal">
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/twitterButton" />
+                android:id="@+id/twitterButton"
+                android:src="@drawable/twitter"
+                android:background="#00000000"
+                android:layout_toLeftOf="@+id/facebookButton"
+                android:padding="10dp"/>
 
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/facebookButton" />
+                android:id="@+id/facebookButton"
+                android:src="@drawable/facebook"
+                android:background="#00000000"
+                android:layout_centerInParent="true"
+                android:padding="10dp"/>
 
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/youtubeButton" />
-        </LinearLayout>
+                android:id="@+id/youtubeButton"
+                android:src="@drawable/youtube"
+                android:background="#00000000"
+                android:layout_toRightOf="@+id/facebookButton"
+                android:padding="10dp"/>
+        </RelativeLayout>
+
     </TableLayout>
 
     <ImageView

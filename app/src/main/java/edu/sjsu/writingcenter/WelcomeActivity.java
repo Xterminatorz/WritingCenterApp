@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
+import android.support.v4.view.WindowCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -23,6 +25,7 @@ public class WelcomeActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
 
+
         //Create a view for use in the ActionBar
         TextView actionBarTitle = new TextView(this);
         actionBarTitle.setText("SJSU Writing Center");
@@ -33,7 +36,7 @@ public class WelcomeActivity extends ActionBarActivity {
         //Set up the ActionBar to display a custom view
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayShowCustomEnabled(true);
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#77000000")));
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#55000000")));
         getSupportActionBar().setCustomView(actionBarTitle, layout);
 
         // Setup buttons with their intents for click events
@@ -87,6 +90,8 @@ public class WelcomeActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 //Facebook
+                Intent facebookIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.facebook_url)));
+                startActivity(facebookIntent);
             }
         });
 
@@ -95,6 +100,8 @@ public class WelcomeActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 //twitter
+                Intent twitterIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.twitter_url)));
+                startActivity(twitterIntent);
             }
         });
 
@@ -103,11 +110,10 @@ public class WelcomeActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 //youtube
+                Intent youtubeIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.youtube_url)));
+                startActivity(youtubeIntent);
             }
         });
-
-        //ImageView wcLogo = (ImageView) findViewById(R.id.wcLogo);
-        //wcLogo.setImageResource(R.drawable.pencil);
     }
 
 
