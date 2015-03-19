@@ -18,7 +18,8 @@ public class FAQActivity extends ActionBarActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_faq, menu);
+        // However, we currently don't need the menu.
+        //getMenuInflater().inflate(R.menu.menu_faq, menu);
         return true;
     }
 
