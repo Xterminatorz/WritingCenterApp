@@ -8,8 +8,10 @@
     <string name="title_activity_location">Location</string>
     <string name="title_activity_faq">F.A.Q\'s</string>
     <string name="appointment_url">https://sjsu.mywconline.com/</string>
+    <string name="mobile_appointment_url">https://sjsu.mywconline.com/text/appt_backdoor.php</string>
     <string name="youtube_url">https://www.youtube.com/user/SJSUWritingCenter/</string>
     <string name="twitter_url">https://twitter.com/thewcatsjsu</string>
     <string name="facebook_url">https://www.facebook.com/sjsuwritingcenter</string>
+    <string name="title_activity_appointment">AppointmentActivity</string>
 
 </resources>

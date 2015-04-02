@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/icon"
@@ -12,7 +13,8 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name=".WelcomeActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:theme="@style/ActionBarOverlay">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -43,13 +45,22 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="edu.sjsu.writingcenter.WelcomeActivity" />
         </activity>
-        <activity android:name=".PDFActivity"
+        <activity
+            android:name=".PDFActivity"
             android:label="Resource View"
             android:parentActivityName=".ResourcesActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-            android:value="edu.sjsu.writingcenter.ResourcesActivity" />
-            </activity>
+                android:value="edu.sjsu.writingcenter.ResourcesActivity" />
+        </activity>
+        <activity
+            android:name=".AppointmentActivity"
+            android:label="@string/title_activity_appointment"
+            android:parentActivityName=".WelcomeActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="edu.sjsu.writingcenter.WelcomeActivity" />
+        </activity>
     </application>
 
 </manifest>

@@ -1,5 +1,6 @@
 package edu.sjsu.writingcenter;
 
+import android.graphics.Typeface;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -7,11 +8,13 @@ import android.view.MenuItem;
 
 
 public class LocationActivity extends ActionBarActivity {
+    public static Typeface Font;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location);
+
     }
 
 

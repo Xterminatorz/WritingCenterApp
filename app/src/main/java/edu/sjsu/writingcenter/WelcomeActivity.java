@@ -45,7 +45,7 @@ public class WelcomeActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 //Launch the browser with the URL to create an appointment
-                Intent appointmentIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.appointment_url)));
+                Intent appointmentIntent = new Intent(getApplicationContext(), AppointmentActivity.class);
                 startActivity(appointmentIntent);
             }
         });
