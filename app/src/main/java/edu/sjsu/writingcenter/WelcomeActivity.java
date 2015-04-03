@@ -1,8 +1,10 @@
 package edu.sjsu.writingcenter;
 
 import android.content.Intent;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.support.v4.view.WindowCompat;
 import android.support.v7.app.ActionBar;
@@ -15,7 +17,11 @@ import android.view.View;
 import android.view.Window;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import java.io.IOException;
+import java.io.InputStream;
 
 
 public class WelcomeActivity extends ActionBarActivity {
@@ -24,6 +30,17 @@ public class WelcomeActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
+
+        ImageView backgroundImage = (ImageView) findViewById(R.id.backgroundImage);
+        ImageView wcLogo = (ImageView) findViewById(R.id.wcLogo);
+        try {
+            backgroundImage.setImageBitmap(BitmapFactory.decodeStream(getAssets().open("background.png")));
+            backgroundImage.setScaleType(ImageView.ScaleType.FIT_XY);
+            wcLogo.setImageBitmap(BitmapFactory.decodeStream(getAssets().open("pencil.png")));
+        } catch (IOException exception) {
+            exception.printStackTrace();
+        }
+
 
 
         //Create a view for use in the ActionBar
@@ -114,6 +131,7 @@ public class WelcomeActivity extends ActionBarActivity {
                 startActivity(youtubeIntent);
             }
         });
+
     }
 
 

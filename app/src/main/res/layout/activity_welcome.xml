@@ -1,8 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent" tools:context=".WelcomeActivity"
-    android:background="@drawable/background"
-    android:paddingTop="?attr/actionBarSize">
+    android:id="@+id/mainLayout">
 
     <!-- Use an invisible view to setup a middle point within the layout-->
     <View android:id="@+id/fakeView"
@@ -10,6 +9,11 @@
         android:layout_height="0dp"
         android:layout_centerInParent="true"
         android:background="#00FFFFFF"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/backgroundImage"/>
 
 
 
@@ -203,8 +207,8 @@
         android:layout_height="match_parent"
         android:id="@+id/wcLogo"
         android:scaleType="fitCenter"
+        android:paddingTop="?attr/actionBarSize"
         android:adjustViewBounds="true"
-        android:src="@drawable/pencil"
         android:layout_above="@+id/fakeView"
         android:layout_centerHorizontal="true" />
 
