@@ -13,6 +13,7 @@ import android.widget.ExpandableListView;
 import android.widget.ExpandableListView.OnChildClickListener;
 import android.widget.Toast;
 
+import org.apache.commons.io.FileUtils;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -26,13 +27,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import org.apache.commons.io.FileUtils;
-
 
 public class ResourcesActivity extends ActionBarActivity {
 
     ExpandableListView expandableListView;
-    ExpandableListAdapter expandableListAdapter;
+    HandoutsExpandableListAdapter expandableListAdapter;
     List<String> expandableListTitle;
     ProgressDialog mProgressDialog;
 
@@ -104,7 +103,7 @@ public class ResourcesActivity extends ActionBarActivity {
         protected void onPostExecute(Void result) {
             expandableListView = (ExpandableListView) findViewById(R.id.expandableListView);
             expandableListTitle = new ArrayList<>(expandableListDetail.keySet());
-            expandableListAdapter = new ExpandableListAdapter(ResourcesActivity.this, expandableListTitle, expandableListDetail);
+            expandableListAdapter = new HandoutsExpandableListAdapter(ResourcesActivity.this, expandableListTitle, expandableListDetail);
             expandableListView.setAdapter(expandableListAdapter);
 
             expandableListView.setOnChildClickListener(new OnChildClickListener() {

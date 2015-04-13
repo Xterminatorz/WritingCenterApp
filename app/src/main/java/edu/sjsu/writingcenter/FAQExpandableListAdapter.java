@@ -1,7 +1,5 @@
 package edu.sjsu.writingcenter;
 
-import java.util.HashMap;
-import java.util.List;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.view.LayoutInflater;
@@ -10,14 +8,17 @@ import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
 
-public class ExpandableListAdapter extends BaseExpandableListAdapter {
+import java.util.HashMap;
+import java.util.List;
+
+public class FAQExpandableListAdapter extends BaseExpandableListAdapter {
 
     private Context context;
     private List<String> expandableListTitle;
-    private HashMap<String, List<Handout>> expandableListDetail;
+    private HashMap<String, List<String>> expandableListDetail;
 
-    public ExpandableListAdapter(Context context, List<String> expandableListTitle,
-                                 HashMap<String, List<Handout>> expandableListDetail) {
+    public FAQExpandableListAdapter(Context context, List<String> expandableListTitle,
+                                    HashMap<String, List<String>> expandableListDetail) {
         this.context = context;
         this.expandableListTitle = expandableListTitle;
         this.expandableListDetail = expandableListDetail;
@@ -26,7 +27,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
     @Override
     public Object getChild(int listPosition, int expandedListPosition) {
         return this.expandableListDetail.get(this.expandableListTitle.get(listPosition))
-                .get(expandedListPosition).getTitle();
+                .get(expandedListPosition);
     }
 
     @Override
