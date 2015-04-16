@@ -12,4 +12,8 @@
         <item name="windowActionBarOverlay">true</item>
     </style>
 
+    <style name="AppThemeNoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
+
+    </style>
+
 </resources>

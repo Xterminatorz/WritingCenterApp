@@ -1,16 +1,22 @@
 package edu.sjsu.writingcenter;
 
 import android.app.ProgressDialog;
+import android.app.SearchManager;
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.SearchView;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ExpandableListView;
 import android.widget.ExpandableListView.OnChildClickListener;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import org.apache.commons.io.FileUtils;
@@ -34,19 +40,28 @@ public class ResourcesActivity extends ActionBarActivity {
     HandoutsExpandableListAdapter expandableListAdapter;
     List<String> expandableListTitle;
     ProgressDialog mProgressDialog;
+    private Toolbar mToolbar;
+    private EditText mToolbarSearchField;
+    private boolean searchMode = false;
+    private ImageButton mSearchButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_resources);
+
         new HandoutsData().execute();
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        // However, we currently don't need the menu.
-        // getMenuInflater().inflate(R.menu.menu_resources, menu);
+        getMenuInflater().inflate(R.menu.menu_resources, menu);
+
+        SearchManager searchManager =
+                (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+        SearchView searchView = (SearchView) menu.findItem(R.id.search).getActionView();
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
         return true;
     }
 
