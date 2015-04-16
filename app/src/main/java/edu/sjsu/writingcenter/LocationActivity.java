@@ -22,7 +22,7 @@ public class LocationActivity extends ActionBarActivity implements View.OnClickL
         setContentView(R.layout.activity_location);
 
     }
-    
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -51,15 +51,21 @@ public class LocationActivity extends ActionBarActivity implements View.OnClickL
         Log.d("onclk", "Button was clicked");
         ImageView imView1 = (ImageView) findViewById(R.id.imageView1);
         ImageView imView2 = (ImageView) findViewById(R.id.imageView2);
+        Button b1 = (Button) findViewById(R.id.button1);
+        Button b2 = (Button) findViewById(R.id.button2);
         switch(v.getId())
         {
             case R.id.button1:
                 imView1.setVisibility(View.VISIBLE);
                 imView2.setVisibility(View.INVISIBLE);
+                b1.setVisibility(View.INVISIBLE);
+                b2.setVisibility(View.VISIBLE);
                 break;
             case R.id.button2:
                 imView1.setVisibility(View.INVISIBLE);
                 imView2.setVisibility(View.VISIBLE);
+                b1.setVisibility(View.VISIBLE);
+                b2.setVisibility(View.INVISIBLE);
                 break;
         }
     }
