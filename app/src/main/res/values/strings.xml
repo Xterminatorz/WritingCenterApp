@@ -6,7 +6,7 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_resources">Resources</string>
     <string name="title_activity_location">Location</string>
-    <string name="title_activity_faq">F.A.Q\'s</string>
+    <string name="title_activity_faq">FAQs</string>
     <string name="appointment_url">https://sjsu.mywconline.com/</string>
     <string name="mobile_appointment_url">https://sjsu.mywconline.com/text/appt_backdoor.php</string>
     <string name="youtube_url">https://www.youtube.com/user/SJSUWritingCenter/</string>
