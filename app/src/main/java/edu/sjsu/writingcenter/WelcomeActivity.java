@@ -132,6 +132,27 @@ public class WelcomeActivity extends ActionBarActivity {
             }
         });
 
+        ImageButton phoneButton = (ImageButton) findViewById(R.id.phoneButton);
+        phoneButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent callIntent = new Intent(Intent.ACTION_DIAL);
+                callIntent.setData(Uri.parse("tel:"+getString(R.string.phone_number)));
+                startActivity(callIntent);
+            }
+        });
+
+        final ImageButton emailButton = (ImageButton) findViewById(R.id.emailButton);
+        emailButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
+                emailIntent.setType("text/plain");
+                emailIntent.setData(Uri.parse("mailto:"+getString(R.string.email)));
+                startActivity(emailIntent);
+            }
+        });
+
     }
 
 
