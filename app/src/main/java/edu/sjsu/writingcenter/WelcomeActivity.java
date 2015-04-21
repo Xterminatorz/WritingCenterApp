@@ -35,7 +35,7 @@ public class WelcomeActivity extends ActionBarActivity {
         ImageView wcLogo = (ImageView) findViewById(R.id.wcLogo);
         try {
             backgroundImage.setImageBitmap(BitmapFactory.decodeStream(getAssets().open("background.jpg")));
-            backgroundImage.setScaleType(ImageView.ScaleType.FIT_XY);
+            backgroundImage.setScaleType(ImageView.ScaleType.CENTER_CROP);
             wcLogo.setImageBitmap(BitmapFactory.decodeStream(getAssets().open("pencil.png")));
         } catch (IOException exception) {
             exception.printStackTrace();
