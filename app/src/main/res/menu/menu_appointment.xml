@@ -2,6 +2,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="edu.sjsu.writingcenter.AppointmentActivity">
-    <item android:id="@+id/action_settings" android:title="@string/action_settings"
-        android:orderInCategory="100" app:showAsAction="never" />
+    <item android:id="@+id/refresh" android:title="Refresh"
+        android:orderInCategory="100" app:showAsAction="always"
+        android:icon="@drawable/ic_autorenew_white_24dp"/>
+    <item android:id="@+id/external_browser" android:title="External Browser"
+          android:orderInCategory="101" app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_open_in_new_white_24dp"/>
 </menu>

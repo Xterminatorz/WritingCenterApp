@@ -1,6 +1,8 @@
 package edu.sjsu.writingcenter;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -27,6 +29,9 @@ public class AppointmentActivity extends ActionBarActivity {
         mWebView.loadUrl(getString(R.string.mobile_appointment_url));
         WebSettings webSettings = mWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
+        webSettings.setBuiltInZoomControls(true);
+        webSettings.setDisplayZoomControls(false);
+        webSettings.setUseWideViewPort(true);
         mWebView.setWebViewClient(new WebViewClient());
 
         final ActionBarActivity activity = this;
@@ -46,7 +51,7 @@ public class AppointmentActivity extends ActionBarActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        //getMenuInflater().inflate(R.menu.menu_appointment, menu);
+        getMenuInflater().inflate(R.menu.menu_appointment, menu);
         return true;
     }
 
@@ -71,22 +76,32 @@ public class AppointmentActivity extends ActionBarActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        } else if (id == android.R.id.home) {
-            if(mWebView != null) {
-                if(mWebView.canGoBack()) {
-                    mWebView.goBack();
-                    return true;
+        switch (id) {
+            case android.R.id.home:
+                if(mWebView != null) {
+                    if(mWebView.canGoBack()) {
+                        mWebView.goBack();
+                        return true;
+                    } else {
+                        return super.onOptionsItemSelected(item);
+                    }
                 } else {
                     return super.onOptionsItemSelected(item);
                 }
-            } else {
-                return super.onOptionsItemSelected(item);
-            }
+            case R.id.refresh:
+                if(mWebView != null) {
+                    mWebView.reload();
+                    return true;
+                }
+                break;
+            case R.id.external_browser:
+                if(mWebView != null) {
+                    Intent openInExternalBrowser = new Intent(Intent.ACTION_VIEW, Uri.parse(mWebView.getUrl()));
+                    startActivity(openInExternalBrowser);
+                    return true;
+                }
+                break;
         }
-
         return super.onOptionsItemSelected(item);
     }
 }
