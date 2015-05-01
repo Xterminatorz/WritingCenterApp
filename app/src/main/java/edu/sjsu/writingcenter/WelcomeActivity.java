@@ -26,18 +26,6 @@ public class WelcomeActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
 
-        ImageView backgroundImage = (ImageView) findViewById(R.id.backgroundImage);
-        ImageView wcLogo = (ImageView) findViewById(R.id.wcLogo);
-        try {
-            backgroundImage.setImageBitmap(BitmapFactory.decodeStream(getAssets().open("background.jpg")));
-            backgroundImage.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            wcLogo.setImageBitmap(BitmapFactory.decodeStream(getAssets().open("pencil.png")));
-        } catch (IOException exception) {
-            exception.printStackTrace();
-        }
-
-
-
         //Create a view for use in the ActionBar
         TextView actionBarTitle = new TextView(this);
         actionBarTitle.setText("SJSU Writing Center");
@@ -61,7 +49,6 @@ public class WelcomeActivity extends ActionBarActivity {
                 startActivity(appointmentIntent);
             }
         });
-        appointmentButton.setImageResource(R.drawable.appointments);
 
         ImageButton resourcesButton = (ImageButton) findViewById(R.id.resourcesButton);
         resourcesButton.setOnClickListener(new View.OnClickListener() {
@@ -73,7 +60,6 @@ public class WelcomeActivity extends ActionBarActivity {
 
             }
         });
-        resourcesButton.setImageResource(R.drawable.resources);
 
         ImageButton locationButton = (ImageButton) findViewById(R.id.locationButton);
         locationButton.setOnClickListener(new View.OnClickListener() {
@@ -84,7 +70,6 @@ public class WelcomeActivity extends ActionBarActivity {
                 startActivity(locationIntent);
             }
         });
-        locationButton.setImageResource(R.drawable.location);
 
         ImageButton faqButton = (ImageButton) findViewById(R.id.faqButton);
         faqButton.setOnClickListener(new View.OnClickListener() {
@@ -95,7 +80,6 @@ public class WelcomeActivity extends ActionBarActivity {
                 startActivity(faqIntent);
             }
         });
-        faqButton.setImageResource(R.drawable.faq);
 
         ImageButton facebookButton = (ImageButton) findViewById(R.id.facebookButton);
         facebookButton.setOnClickListener(new View.OnClickListener() {

@@ -2,15 +2,20 @@ package edu.sjsu.writingcenter;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ExpandableListView;
 import android.widget.ExpandableListView.OnChildClickListener;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.apache.commons.io.FileUtils;
@@ -30,15 +35,34 @@ import java.util.List;
 
 public class ResourcesActivity extends ActionBarActivity {
 
-    ExpandableListView expandableListView;
-    HandoutsExpandableListAdapter expandableListAdapter;
-    List<String> expandableListTitle;
-    ProgressDialog mProgressDialog;
+    private ExpandableListView expandableListView;
+    private HandoutsExpandableListAdapter expandableListAdapter;
+    private List<String> expandableListTitle;
+    private ProgressDialog mProgressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_resources);
+
+        //Create a view for use in the ActionBar
+        TextView actionBarTitle = new TextView(this);
+        actionBarTitle.setText("Writing Resources");
+        actionBarTitle.setTextColor(Color.WHITE);
+        //Create layout parameters to center the text in the ActionBar
+        ActionBar.LayoutParams layout = new ActionBar.LayoutParams(ActionBar.LayoutParams.WRAP_CONTENT, ActionBar.LayoutParams.WRAP_CONTENT);
+        layout.gravity = Gravity.CENTER_HORIZONTAL;
+        //Set up the ActionBar to display a custom view
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setDisplayShowCustomEnabled(true);
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#55000000")));
+        getSupportActionBar().setCustomView(actionBarTitle, layout);
+
+
+        expandableListView = (ExpandableListView) findViewById(R.id.expandableListView);
+        expandableListView.setGroupIndicator(null);
+        expandableListView.setChildIndicator(null);
+
         new HandoutsData().execute();
     }
 
@@ -101,7 +125,6 @@ public class ResourcesActivity extends ActionBarActivity {
 
         @Override
         protected void onPostExecute(Void result) {
-            expandableListView = (ExpandableListView) findViewById(R.id.expandableListView);
             expandableListTitle = new ArrayList<>(expandableListDetail.keySet());
             expandableListAdapter = new HandoutsExpandableListAdapter(ResourcesActivity.this, expandableListTitle, expandableListDetail);
             expandableListView.setAdapter(expandableListAdapter);

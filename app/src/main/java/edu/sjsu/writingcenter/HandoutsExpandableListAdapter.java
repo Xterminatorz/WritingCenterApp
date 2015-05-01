@@ -5,9 +5,12 @@ import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.nio.InvalidMarkException;
 import java.util.HashMap;
 import java.util.List;
 
@@ -80,9 +83,14 @@ public class HandoutsExpandableListAdapter extends BaseExpandableListAdapter {
                     getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = layoutInflater.inflate(R.layout.list_group, null);
         }
+        ImageView childIndicator = (ImageView) convertView.findViewById(R.id.customGroupIndicator);
+        if(isExpanded) {
+            childIndicator.setImageDrawable(convertView.getResources().getDrawable(R.drawable.ic_expand_less_white_18dp));
+        } else {
+            childIndicator.setImageDrawable(convertView.getResources().getDrawable(R.drawable.ic_expand_more_white_18dp));
+        }
         TextView listTitleTextView = (TextView) convertView
                 .findViewById(R.id.listTitle);
-        listTitleTextView.setTypeface(null, Typeface.BOLD);
         listTitleTextView.setText(listTitle);
         return convertView;
     }

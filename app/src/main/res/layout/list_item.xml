@@ -7,6 +7,8 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:paddingLeft="?android:attr/expandableListPreferredChildPaddingLeft"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
         android:paddingTop="10dp"
         android:paddingBottom="10dp" />
 

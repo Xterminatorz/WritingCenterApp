@@ -1,12 +1,17 @@
 package edu.sjsu.writingcenter;
 
 import android.app.ProgressDialog;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ExpandableListView;
+import android.widget.TextView;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -29,6 +34,24 @@ public class FAQActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_faq);
+
+        //Create a view for use in the ActionBar
+        TextView actionBarTitle = new TextView(this);
+        actionBarTitle.setText("Frequently Asked Questions");
+        actionBarTitle.setTextColor(Color.WHITE);
+        //Create layout parameters to center the text in the ActionBar
+        ActionBar.LayoutParams layout = new ActionBar.LayoutParams(ActionBar.LayoutParams.WRAP_CONTENT, ActionBar.LayoutParams.WRAP_CONTENT);
+        layout.gravity = Gravity.CENTER_HORIZONTAL;
+        //Set up the ActionBar to display a custom view
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setDisplayShowCustomEnabled(true);
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#55000000")));
+        getSupportActionBar().setCustomView(actionBarTitle, layout);
+
+        expandableListView = (ExpandableListView) findViewById(R.id.FAQExpandableListView);
+        expandableListView.setChildIndicator(null);
+        expandableListView.setGroupIndicator(null);
+
         new FAQData().execute();
     }
 
@@ -99,7 +122,6 @@ public class FAQActivity extends ActionBarActivity {
 
         @Override
         protected void onPostExecute(Void result) {
-            expandableListView = (ExpandableListView) findViewById(R.id.FAQExpandableListView);
             expandableListTitle = new ArrayList<>(expandableListDetail.keySet());
             expandableListAdapter = new FAQExpandableListAdapter(FAQActivity.this, expandableListTitle, expandableListDetail);
             expandableListView.setAdapter(expandableListAdapter);

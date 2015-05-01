@@ -14,7 +14,8 @@
         <activity
             android:name=".WelcomeActivity"
             android:label="@string/app_name"
-            android:theme="@style/ActionBarOverlay">
+            android:theme="@style/ActionBarOverlay"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,7 +25,8 @@
         <activity
             android:name=".ResourcesActivity"
             android:label="@string/title_activity_resources"
-            android:parentActivityName=".WelcomeActivity" >
+            android:parentActivityName=".WelcomeActivity"
+            android:theme="@style/ActionBarOverlay">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="edu.sjsu.writingcenter.WelcomeActivity" />
@@ -40,7 +42,8 @@
         <activity
             android:name=".FAQActivity"
             android:label="@string/title_activity_faq"
-            android:parentActivityName=".WelcomeActivity" >
+            android:parentActivityName=".WelcomeActivity"
+            android:theme="@style/ActionBarOverlay">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="edu.sjsu.writingcenter.WelcomeActivity" />
