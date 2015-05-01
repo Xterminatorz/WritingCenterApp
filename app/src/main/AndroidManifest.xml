@@ -34,7 +34,8 @@
         <activity
             android:name=".LocationActivity"
             android:label="@string/title_activity_location"
-            android:parentActivityName=".WelcomeActivity" >
+            android:parentActivityName=".WelcomeActivity"
+            android:theme="@style/ActionBarOverlay">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="edu.sjsu.writingcenter.WelcomeActivity" />
